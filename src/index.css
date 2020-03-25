@@ -18,6 +18,14 @@ li .active-play {
   background-color: #F44336;
 }
 
+li .active-play:hover {
+  background-color: rgb(216, 59, 48);
+}
+
+li .active-play:active {
+  background-color: rgb(139, 40, 33);
+}
+
 .game-header p {
   margin: 0;
 }
@@ -33,16 +41,23 @@ li .active-play {
   border-radius: 3px;
   border: 0px;
   margin-bottom: 4px;
-  /* border: 0;
- 
-  margin-top: 2px;
-  color: #fff;
-  padding: 8px 16px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px; */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.step-button:hover,
+.reset-button:hover {
+  cursor: pointer;
+  background: rgb(67, 151, 70);
+}
+
+.step-button:active,
+.reset-button:active {
+  cursor: pointer;
+  background: rgb(39, 88, 41);
+  transform: translateY(1px);
+}
+
 
 .status {
   margin-bottom: 10px;
@@ -90,6 +105,11 @@ li .active-play {
     display: block;
     margin: auto;
   }
+
+  .game-info {
+    margin: 0;
+  }
+
 
   .game {
     display: flex;
