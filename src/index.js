@@ -104,6 +104,21 @@ class Game extends React.Component {
     });
   }
 
+  reset() {
+    this.setState({
+      history: [
+        {
+          squares: Array(9).fill(null),
+          position: ""
+        }
+      ],
+      xIsNext: true,
+      stepNumber: 0,
+      stepsReversed: false,
+      winner: []
+    });
+  }
+
   jumpTo(step, current) {
     this.setState({
       stepNumber: step,
@@ -145,9 +160,23 @@ class Game extends React.Component {
 
     let status;
     if (winner) {
-      status = "Winner: " + winner;
+      status = (
+        <div className="game-header">
+          <p>{"Winner: " + winner}</p>
+          <button onClick={() => this.reset()} className="reset-button">
+            {"Reset"}
+          </button>
+        </div>
+      );
     } else if (!current.squares.includes(null)) {
-      status = "Tie";
+      status = (
+        <div className="game-header">
+          <p>Tie</p>
+          <button onClick={() => this.reset()} className="reset-button">
+            {"Reset"}
+          </button>
+        </div>
+      );
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
